@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh mục sản phẩm</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to bottom, #add8e6, #ffffff);
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            color: #005a9e;
+            margin-bottom: 30px;
+        }
+
+        /* Tạo lưới hiển thị sản phẩm */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Khung của từng sản phẩm */
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+            padding-bottom: 15px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px); /* Hiệu ứng bay lên khi di chuột */
+        }
+
+        /* Hình ảnh sản phẩm */
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover; /* Giữ ảnh không bị bóp méo */
+            background-color: #f0f0f0;
+        }
+
+        .product-card h3 {
+            font-size: 1.2rem;
+            margin: 15px 0 5px 0;
+        }
+
+        .product-card p {
+            color: #ef4444; /* Màu đỏ cho giá tiền */
+            font-weight: bold;
+        }
+
+        .buy-btn {
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .buy-btn:hover {
+            background-color: #005a9e;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Các sản phẩm dành cho Thảo</h2>
+
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="1.png" alt="Sản phẩm 1">
+            <h3>S01 Shrimmer Soufflé</h3>
+            <a href="thongtin1.html" class="buy-btn" style="text-decoration: none; display: inline-block;">Mua cái này</a>
+        </div>
+
+        <div class="product-card">
+            <img src="2.png" alt="Sản phẩm 2">
+            <h3>S02 Garden Picnic</h3>
+            <a href="thongtin2.html" class="buy-btn" style="text-decoration: none; display: inline-block;">Mua cái này</a>
+        </div>
+
+        <div class="product-card">
+            <img src="3.png" alt="Sản phẩm 3">
+            <h3>S03 Rose Chanson</h3>
+            <a href="thongtin3.html" class="buy-btn" style="text-decoration: none; display: inline-block;">Mua cái này</a>
+        </div>
+    </div>
+
+</body>
+</html>

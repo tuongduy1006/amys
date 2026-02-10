@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>no</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(to bottom, #add8e6, #ffffff);
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column; /* Xếp các phần tử theo hàng dọc */
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Thiết kế nút bấm */
+        .btn-ready {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            background-color: #0078d4; /* Màu xanh đậm nổi bật */
+            border: none;
+            border-radius: 50px; /* Bo tròn kiểu viên thuốc */
+            cursor: pointer;
+            text-decoration: none; /* Bỏ gạch chân nếu dùng thẻ <a> */
+            transition: all 0.3s ease; /* Hiệu ứng mượt mà */
+            box-shadow: 0 4px 15px rgba(0, 120, 212, 0.3);
+        }
+
+        /* Hiệu ứng khi di chuột vào nút */
+        .btn-ready:hover {
+            background-color: #005a9e;
+            transform: translateY(-3px); /* Nút bay lên nhẹ */
+            box-shadow: 0 6px 20px rgba(0, 120, 212, 0.4);
+        }
+
+        /* Hiệu ứng khi ấn nút */
+        .btn-ready:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <h1> đã sẵn sàng khám phá chưa?</h1>
+
+    <a href="câu hỏi.html" class="btn-ready">Sẵn sàng!</a>
+
+</body>
+</html>
