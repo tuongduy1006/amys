@@ -2,35 +2,211 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Cảm ơn Thảo!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S01 Shrimmer Soufflé - Order</title>
     <style>
+        /* 1. Reset & Font chung */
+        * { box-sizing: border-box; }
+        body, input, textarea, button {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        }
+
         body {
             margin: 0;
-            height: 100vh;
+            padding: 0;
             background: linear-gradient(to bottom, #add8e6, #ffffff);
+            background-attachment: fixed;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: sans-serif;
-            text-align: center;
+            min-height: 100vh;
+            overflow: hidden; /* Chống cuộn trang chính để tạo cảm giác app */
         }
-        .card {
+
+        /* 2. Khung chứa Slider (70% width) */
+        .slider-wrapper {
+            position: relative;
+            width: 70vw; /* Chiếm 70% chiều rộng màn hình */
+            max-width: 900px;
+            height: 80vh; /* Chiều cao cố định để lướt mượt */
+            display: flex;
+            align-items: center;
+        }
+
+        /* Khung trắng chính */
+        .container {
             background: white;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden; /* Để ẩn các phần lướt qua */
         }
-        h1 { color: #28a745; }
-        a { color: #0078d4; text-decoration: none; font-weight: bold; }
+
+        /* 3. Nội dung lướt (Slides) */
+        .slides-container {
+            display: flex;
+            width: 300%; /* Vì có 3 phần lướt */
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            width: 33.333%;
+            height: 100%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto; /* Cho phép cuộn nội dung bên trong slide nếu dài */
+        }
+
+        /* 4. Mũi tên điều hướng */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #0078d4;
+            z-index: 10;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover { background: white; transform: translateY(-50%) scale(1.1); }
+        .prev { left: -70px; }
+        .next { right: -70px; }
+
+        /* 5. Định dạng nội dung bên trong */
+        .product-header h1 { color: #005a9e; text-align: center; }
+        .order-form h3 { text-align: center; color: #333; margin-bottom: 25px; }
+
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-weight: 600; margin-bottom: 8px; }
+        .input-group input, .input-group textarea {
+            width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 12px; font-size: 1rem;
+        }
+
+        .btn-submit {
+            width: 100%; padding: 18px; background-color: #28a745; color: white;
+            border: none; border-radius: 12px; font-size: 1.1rem; font-weight: bold;
+            cursor: pointer; transition: 0.3s;
+        }
+        .btn-submit:disabled { background-color: #ccc; }
+
+        /* Chấm nhỏ báo vị trí trang */
+        .dots {
+            position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 10px;
+        }
+        .dot { width: 10px; height: 10px; background: #ddd; border-radius: 50%; }
+        .dot.active { background: #0078d4; width: 25px; border-radius: 10px; }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>Đặt hàng thành công! 🎉</h1>
-        <p>Thông tin của Thảo đã được gửi tới hòm thư của tớ.</p>
-        <p>Chờ tớ liên lạc với cậu nhé!</p>
-        <br>
-        <a href="index.html">Quay lại trang chủ</a>
+
+    <div class="slider-wrapper">
+        <button class="nav-btn prev" onclick="moveSlide(-1)">❮</button>
+        <button class="nav-btn next" onclick="moveSlide(1)">❯</button>
+
+        <div class="container">
+            <div class="slides-container" id="slides">
+                
+                <div class="slide">
+                    <div class="product-header">
+                        <h1></h1>
+                        <p style="text-align: center; line-height: 1.6;">
+                            hehe cảm ơn Thảo đã điền thông tin nhaa     
+                        (lúc tớ viết cái này k biết c có đồng ý để tớ tặng quà k nma thôi cứ cảm ơn trước đã), chúc Thảo có một ngày valentine vui vẻ, mong c sẽ đạt được những điều c muốn, sớm có ny (hi vọng ng đó sẽ là bạn chv ha)
+                        </p>
+                        <img src="4.jpg" style="width: 100%; max-width: 300px; display: block; margin: 20px auto; border-radius: 15px;">
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="product-header">
+                        <h1></h1>
+                        <p style="text-align: center; line-height: 1.6;">
+                            xin lỗi Thảo vì những lời nói hôm trước đã làm tổn thương c, đã làm c buồn, có thể c còn giận tớ nhiều, tớ thấy mình tệ lắm, tớ xin lỗi Thảo 😭😭
+                        </p>
+                        <img src="6.jpg" style="width: 100%; max-width: 300px; display: block; margin: 20px auto; border-radius: 15px;">
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="product-header">
+                        <h1></h1>
+                        <p style="text-align: center; line-height: 1.6;">
+                           tớ vẫn muốn nói với Thảo là dù có chuyện gì đi nữa thì tớ vẫn luôn ở bên c (hnhu tớ thất hứa 1 lần r nhỉ 🙁,lần này sẽ k thất hứa nữa đâu), luôn về phía c, chắc cho đến khi c có ny thôi ha, nên là hãy chia sẻ những chuyện vui, buồn của c cho tớ nghe nha
+                        </p>
+                        <img src="5.jpg" style="width: 100%; max-width: 300px; display: block; margin: 20px auto; border-radius: 15px;">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        // 1. Xử lý Slider
+        let currentSlide = 0;
+        const slides = document.getElementById('slides');
+        const dots = document.querySelectorAll('.dot');
+
+        function moveSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide > 2) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = 2;
+            
+            slides.style.transform = `translateX(-${currentSlide * 33.333}%)`;
+            
+            // Cập nhật chấm
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentSlide].classList.add('active');
+        }
+
+        // 2. Xử lý Gửi Form (AJAX)
+        const form = document.getElementById("my-form");
+        const statusBtn = document.getElementById("submit-button");
+
+        form.addEventListener("submit", async function(e) {
+            e.preventDefault();
+            const data = new FormData(e.target);
+            statusBtn.innerHTML = "Đang gửi...";
+            statusBtn.disabled = true;
+
+            fetch(e.target.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    window.location.href = "cam-on.html";
+                } else {
+                    alert("Có lỗi xảy ra, cậu thử lại nhé!");
+                    statusBtn.innerHTML = "Xác nhận đặt hàng ngay";
+                    statusBtn.disabled = false;
+                }
+            }).catch(() => {
+                alert("Lỗi kết nối rồi!");
+                statusBtn.disabled = false;
+            });
+        });
+    </script>
 </body>
 </html>
