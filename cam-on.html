@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vch</title>
     <style>
-        /* 1. Reset & Font chung */
+       
         * { box-sizing: border-box; }
         body, input, textarea, button {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
@@ -19,7 +19,7 @@
             min-height: 100vh; overflow: hidden;
         }
 
-        /* 2. Khung chứa Slider (75vw) */
+        
         .slider-wrapper {
             position: relative;
             width: 75vw;
@@ -49,7 +49,7 @@
             overflow-y: auto;
         }
 
-        /* 4. Mũi tên điều hướng */
+        
         .nav-btn {
             position: absolute; top: 50%; transform: translateY(-50%);
             background: white; border: none; width: 50px; height: 50px;
@@ -62,19 +62,19 @@
         .prev { left: -60px; }
         .next { right: -60px; }
 
-        /* 5. SỬA LẠI CSS NÚT: Mặc định ẩn đi */
+       
         .bottom-nav {
             position: absolute;
             bottom: 25px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 20;
-            opacity: 0; /* Ẩn */
-            visibility: hidden; /* Không cho bấm khi ẩn */
-            transition: all 0.4s ease; /* Hiệu ứng mượt */
+            opacity: 0; 
+            visibility: hidden; 
+            transition: all 0.4s ease;
         }
 
-        /* Class này sẽ được thêm bằng JS khi đến slide cuối */
+     
         .bottom-nav.active-btn {
             opacity: 1;
             visibility: visible;
@@ -88,7 +88,7 @@
         }
         .btn-back-home:hover { background: #0078d4; color: white; }
 
-        /* Chấm báo vị trí */
+      
         .dots {
             position: absolute; bottom: 75px; left: 50%; transform: translateX(-50%);
             display: flex; gap: 10px;
@@ -165,11 +165,11 @@
             
             slidesContainer.style.transform = `translateX(-${currentSlide * 25}%)`;
             
-            // Cập nhật chấm
+           
             dots.forEach(dot => dot.classList.remove('active'));
             dots[currentSlide].classList.add('active');
 
-            // KIỂM TRA ĐỂ HIỆN NÚT: Nếu là slide cuối (số 3) thì hiện
+          
             if (currentSlide === 3) {
                 backBtnContainer.classList.add('active-btn');
             } else {

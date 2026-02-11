@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>trẩu</title>
     <style>
-        /* 1. Thiết lập Font chữ chung và Nền */
+        
         body, input, textarea, button, select {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
         }
@@ -22,7 +22,7 @@
             color: #333;
         }
 
-        /* 2. Khung chứa chính */
+       
         .container {
             background: white;
             width: 100%;
@@ -34,7 +34,7 @@
             margin-bottom: 20px;
         }
 
-        /* 3. Tiêu đề sản phẩm */
+       
         .product-header {
             text-align: center;
             margin-bottom: 25px;
@@ -46,7 +46,7 @@
             font-size: 1.8rem;
         }
 
-        /* 4. Định dạng Form */
+       
         .order-form {
             border-top: 2px dashed #add8e6;
             padding-top: 20px;
@@ -88,7 +88,7 @@
             box-shadow: 0 0 5px rgba(0,120,212,0.2);
         }
 
-        /* 5. Nút bấm */
+       
         .btn-submit {
             width: 100%;
             padding: 15px;
@@ -173,7 +173,7 @@
         const statusBtn = document.getElementById("submit-button");
 
         async function handleSubmit(event) {
-            event.preventDefault(); // Ngăn trang web tải lại
+            event.preventDefault(); 
             
             const data = new FormData(event.target);
             statusBtn.innerHTML = "Đang gửi...";
@@ -187,14 +187,13 @@
                 }
             }).then(response => {
                 if (response.ok) {
-                    // Chuyển hướng sang trang cảm ơn khi gửi thành công
                     window.location.href = "cam-on.html";
                 } else {
                     response.json().then(data => {
                         if (Object.hasOwn(data, 'errors')) {
                             alert(data["errors"].map(error => error["message"]).join(", "));
                         } else {
-                            alert("Ối! Có lỗi xảy ra khi gửi đơn hàng.");
+                            alert("Oi lỗi roi");
                         }
                     });
                 }
